@@ -87,6 +87,7 @@ public class HangNhapController {
 					listHangNhap.get(i), HangNhap.class);
 			
 		}
+		
 		// xóa khỏi session
 		session.removeAttribute("donnhaphang");
 		

@@ -43,4 +43,58 @@ public class DonNhapHang {
 	public DonNhapHang() {
 		
 	}
+	
+	
+
+	public DonNhapHang(int idDonNhap, long tongTien, NhanVien nhanVien, NhaCungCap nhaCungCap,
+			List<HangNhap> listHangNhap) {
+		super();
+		this.idDonNhap = idDonNhap;
+		this.tongTien = tongTien;
+		this.nhanVien = nhanVien;
+		this.nhaCungCap = nhaCungCap;
+		this.listHangNhap = listHangNhap;
+	}
+
+	public int getIdDonNhap() {
+		return idDonNhap;
+	}
+
+	public void setIdDonNhap(int idDonNhap) {
+		this.idDonNhap = idDonNhap;
+	}
+
+	public long getTongTien() {
+		return tongTien;
+	}
+
+	public void setTongTien(long tongTien) {
+		this.tongTien = tongTien;
+	}
+
+	public NhanVien getNhanVien() {
+		return nhanVien;
+	}
+
+	public void setNhanVien(NhanVien nhanVien) {
+		this.nhanVien = nhanVien;
+	}
+
+	public NhaCungCap getNhaCungCap() {
+		return nhaCungCap;
+	}
+
+	public void setNhaCungCap(NhaCungCap nhaCungCap) {
+		this.nhaCungCap = nhaCungCap;
+	}
+
+	public List<HangNhap> getListHangNhap() {
+		return listHangNhap;
+	}
+
+	public void setListHangNhap(List<HangNhap> listHangNhap) {
+		this.listHangNhap = listHangNhap;
+	}
+	
+	
 }

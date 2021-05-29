@@ -168,8 +168,12 @@ public class MatHangController {
 		// add product
 		matHang.setActive(1);
 		matHang.setSoLuong(0);
-		rest.postForObject("http://localhost:8080/goods",matHang, MatHang.class);
-		
+		matHang = rest.postForObject("http://localhost:8080/goods",matHang, MatHang.class);
+		if (matHang == null ) {
+			matHang = new MatHang();
+			model.addAttribute("error_add", "Thêm mặt hàng thất bại!");
+			return "new_product";
+		}
 		//check staff
 		// kiểm tra nếu là nv kho thì quay về giao diện search mặt hàng
 		// nếu là nv ql thì quay về giao diện ql

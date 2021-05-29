@@ -40,4 +40,56 @@ public class NhaCungCap {
 		this.active = 1;
 	}
 	public NhaCungCap() {}
+	public NhaCungCap(int idNhaCungCap,
+			@NotNull @NotBlank(message = "Tên nhà cung cấp không được để trống") String tenNhaCungCap,
+			@NotNull @NotBlank(message = "Tên chủ cửa hàng không được để trống") String tenChuCuaHang,
+			@NotNull @NotBlank(message = "Địa chỉ không được để trống") String diaChi,
+			@NotNull @NotBlank(message = "Số điện thoại không được để trống") String soDienThoai, int active) {
+		super();
+		this.idNhaCungCap = idNhaCungCap;
+		this.tenNhaCungCap = tenNhaCungCap;
+		this.tenChuCuaHang = tenChuCuaHang;
+		this.diaChi = diaChi;
+		this.soDienThoai = soDienThoai;
+		this.active = active;
+	}
+	public int getIdNhaCungCap() {
+		return idNhaCungCap;
+	}
+	public void setIdNhaCungCap(int idNhaCungCap) {
+		this.idNhaCungCap = idNhaCungCap;
+	}
+	public String getTenNhaCungCap() {
+		return tenNhaCungCap;
+	}
+	public void setTenNhaCungCap(String tenNhaCungCap) {
+		this.tenNhaCungCap = tenNhaCungCap;
+	}
+	public String getTenChuCuaHang() {
+		return tenChuCuaHang;
+	}
+	public void setTenChuCuaHang(String tenChuCuaHang) {
+		this.tenChuCuaHang = tenChuCuaHang;
+	}
+	public String getDiaChi() {
+		return diaChi;
+	}
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
+	
+	
+	
 }

@@ -30,11 +30,11 @@ input[type=number] {
     <div align="center">
         <h1>Thêm mới mặt hàng</h1>
         <br />
+        
         <form action="#" th:action="@{/products/add}" th:object="${mathang}"
             method="post">
  
             <table border="0" cellpadding="10">
-            	
                 <tr>
                     <td><span style="color:red">*</span> Tên mặt hàng: </td>
                     <td><input type="text" th:field="*{tenMatHang}" autofocus/></td>
@@ -69,6 +69,10 @@ input[type=number] {
                 <tr>
                 	<td><button onclick="history.back()" type = "button">Quay lại</button></td>
                     <td><button type="submit">Thêm mặt hàng</button> </td>
+                </tr>
+                	
+                <tr>
+                	<span style="color:red" th:text="${error_add}"/>
                 </tr>
             </table>
         </form>

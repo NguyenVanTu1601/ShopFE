@@ -39,4 +39,75 @@ public class MatHang {
 	public MatHang() {
 		
 	}
+
+	
+	public MatHang(int idMatHang, @NotNull String loaiMatHang, @NotNull String tenMatHang, int soLuong,
+			@NotNull int giaNhap, @NotNull int giaBan, int active) {
+		super();
+		this.idMatHang = idMatHang;
+		this.loaiMatHang = loaiMatHang;
+		this.tenMatHang = tenMatHang;
+		this.soLuong = soLuong;
+		this.giaNhap = giaNhap;
+		this.giaBan = giaBan;
+		this.active = active;
+	}
+
+	public int getIdMatHang() {
+		return idMatHang;
+	}
+
+	public void setIdMatHang(int idMatHang) {
+		this.idMatHang = idMatHang;
+	}
+
+	public String getLoaiMatHang() {
+		return loaiMatHang;
+	}
+
+	public void setLoaiMatHang(String loaiMatHang) {
+		this.loaiMatHang = loaiMatHang;
+	}
+
+	public String getTenMatHang() {
+		return tenMatHang;
+	}
+
+	public void setTenMatHang(String tenMatHang) {
+		this.tenMatHang = tenMatHang;
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public int getGiaNhap() {
+		return giaNhap;
+	}
+
+	public void setGiaNhap(int giaNhap) {
+		this.giaNhap = giaNhap;
+	}
+
+	public int getGiaBan() {
+		return giaBan;
+	}
+
+	public void setGiaBan(int giaBan) {
+		this.giaBan = giaBan;
+	}
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+	
+	
 }
