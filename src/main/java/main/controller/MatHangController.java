@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.security.auth.x500.X500Principal;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
+
+import com.sun.istack.Nullable;
 
 import main.model.HangNhap;
 import main.model.MatHang;
@@ -105,12 +108,26 @@ public class MatHangController {
 	public String editProduct(@ModelAttribute("mathang") MatHang matHang, 
 			Model model,HttpSession session ) {
 		
-		matHang.setActive(1);
-		matHang.setSoLuong(0);
-		rest.postForObject("http://localhost:8080/goods",matHang, MatHang.class);
-		
+		boolean isValid = false;
 		NhanVien nv = (NhanVien) session.getAttribute("nhanvien");
 		model.addAttribute("nhanvien", nv);
+		
+		matHang.setActive(1);
+		// check validate
+		if(matHang.getTenMatHang().trim().equals("")) {
+			isValid = true;
+			model.addAttribute("error_name", "Tên mặt hàng không được để trống!");
+		}
+		if(matHang.getGiaBan() <= matHang.getGiaNhap()) {
+			isValid = true;
+			model.addAttribute("error_price", "Giá bán phải lớn hơn giá nhập!");
+		}
+				
+		if(isValid) {
+			return "edit_delete_product";
+		}
+		
+		matHang = rest.postForObject("http://localhost:8080/goods/edit",matHang, MatHang.class);
 		return "product_management";
 	}
 	
@@ -143,6 +160,7 @@ public class MatHangController {
 	public String addNewProduct(@ModelAttribute("mathang") MatHang matHang, 
 			Model model,HttpSession session ) {
 		
+		// so sánh 2 thằng mặt hang nhận được và gửi đi, nếu trùng nhau thì là đã lưu
 		boolean isValid = false;
 		NhanVien nv = (NhanVien) session.getAttribute("nhanvien");
 		model.addAttribute("nhanvien", nv);
@@ -151,10 +169,6 @@ public class MatHangController {
 		if(matHang.getTenMatHang().trim().equals("")) {
 			isValid = true;
 			model.addAttribute("error_name", "Tên mặt hàng không được để trống!");
-		}
-		if(matHang.getLoaiMatHang().trim().equals("")) {
-			isValid = true;
-			model.addAttribute("error_type", "Loại mặt hàng không được để trống!");
 		}
 		if(matHang.getGiaBan() <= matHang.getGiaNhap()) {
 			isValid = true;
@@ -169,7 +183,7 @@ public class MatHangController {
 		matHang.setActive(1);
 		matHang.setSoLuong(0);
 		matHang = rest.postForObject("http://localhost:8080/goods",matHang, MatHang.class);
-		if (matHang == null ) {
+		if (matHang == null || !(matHang.getIdMatHang() >= 0 || matHang.getIdMatHang() < 0) ) {
 			matHang = new MatHang();
 			model.addAttribute("error_add", "Thêm mặt hàng thất bại!");
 			return "new_product";

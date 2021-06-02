@@ -6,13 +6,10 @@
 <title>Tìm kiếm</title>
 <style>
 input[type=text] {
-  width: 350px;
+  width: 400px;
   transition: ease-in-out, width .35s ease-in-out;
 }
 
-input[type=text]:focus {
-  width: 400px;
-}
 .log{
 margin-right:30px;
 }
@@ -47,13 +44,13 @@ tr:hover{
     <div align = "center" class="main">
     	
     	<form action="#" th:action="@{/suppliers/search}" method = "get">
-	    	<input type = "text" name = "inputSearch" placeholder ="Nhập tên nhà cung cấp" autofocus>
-	    	<button type="submit">Tìm kiếm</button>
+	    	<input id = "inputSearch" type = "text" name = "inputSearch" placeholder ="Nhập tên nhà cung cấp" autofocus>
+	    	<button id = "btnSearch" type="submit">Tìm kiếm</button>
 	    	<br/><br/>
     	</form>
    
    		<h1>Danh sách nhà cung cấp</h1>
-	    <table border="1" cellpadding="10" style="width:100%">
+	    <table border="1" cellpadding="10" style="width:100%" id = "table_nhacungcap">
 	        <thead>
 	            <tr>
 	                <th>Tên nhà cung cấp</th>
@@ -65,7 +62,7 @@ tr:hover{
 	        <tbody>
 	            <tr th:each="supplier : ${listSupplier}">
 	            	<td>
-	            		<a th:text="${supplier.tenNhaCungCap}" 
+	            		<a th:id = "${supplier.idNhaCungCap}" th:text="${supplier.tenNhaCungCap}" 
 	            		th:href ="@{'/suppliers/' + ${supplier.idNhaCungCap}}"></a>
 	            	</td>
 	                <td>
@@ -88,10 +85,10 @@ tr:hover{
 	    
 	    <div align = "right" class = "btn">
 	    	<a th:href="@{/}">
-				<button type="button" onclick="window.history.go(-1)">Quay lại</button>
+				<button id = "btnBack" type="button" onclick="window.history.go(-1)">Quay lại</button>
 			</a>
 	    	<a th:href="@{/suppliers/new}" >
-				<button type="button">Thêm nhà cung cấp</button>
+				<button id = "btnShowAddSupplier" type="button">Thêm nhà cung cấp</button>
 			</a>
 	    </div>
 	    

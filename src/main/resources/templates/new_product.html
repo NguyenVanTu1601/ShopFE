@@ -37,8 +37,8 @@ input[type=number] {
             <table border="0" cellpadding="10">
                 <tr>
                     <td><span style="color:red">*</span> Tên mặt hàng: </td>
-                    <td><input type="text" th:field="*{tenMatHang}" autofocus/></td>
-                    <td><span style="color:red" th:text="${error_name}"></span></td>
+                    <td><input id = "name" type="text" th:field="*{tenMatHang}" autofocus/></td>
+                    <td><span id = "error_name" style="color:red" th:text="${error_name}"></span></td>
                 </tr>
                 <tr>
                     <td><span style="color:red">*</span> Loại mặt hàng:</td>
@@ -55,20 +55,21 @@ input[type=number] {
                 </tr>
                 <tr>
                     <td><span style="color:red">*</span> Giá nhập:</td>
-                    <td><input type="number" th:field="*{giaNhap}" /></td>
+                    <td> <input id = "price1" type="number" th:field="*{giaNhap}" min = 1 max = 100000000/> </td>
                     <td>VNĐ</td>
                     
                 </tr>
                 <tr>
                     <td><span style="color:red">*</span> Giá bán:</td>
-                    <td><input type="number" th:field="*{giaBan}" /></td>
-                    <td>VNĐ <span style="color:red" th:text="${error_price}"></span></td>
+                    <td><input id = "price2" type="number" th:field="*{giaBan}" min = 1 max = 100000000 required/></td>
+                    <td>VNĐ <span id = "error_price" style="color:red" th:text="${error_price}"></span></td>
+                    <td><span class="validity"></span></td>
                 </tr>
                
                                     
                 <tr>
-                	<td><button onclick="history.back()" type = "button">Quay lại</button></td>
-                    <td><button type="submit">Thêm mặt hàng</button> </td>
+                	<td><button id = "btnBack" onclick="history.back()" type = "button">Quay lại</button></td>
+                    <td><button id = "btnAdd"type="submit">Thêm mặt hàng</button> </td>
                 </tr>
                 	
                 <tr>

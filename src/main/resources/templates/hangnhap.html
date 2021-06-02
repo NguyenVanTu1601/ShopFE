@@ -51,18 +51,20 @@ input[type=number] {
                 </tr>
                 <tr>
                     <td>Đơn giá:</td>
-                    <td><input type="number" th:field="*{donGia}" value = '1' min = 1 /></td>
+                    <td><input id = "price" type="number" th:field="*{donGia}" value = '1' 
+                    		min = 1 max 100000000/></td>
                     <td>VNĐ</td>
                 </tr>
                 
                 <tr>
                     <td>Số lượng:</td>
-                    <td><input type="number" th:field="*{soLuong}" value = '1' min = 1 autofocus/></td>
+                    <td><input id = "quantity" type="number" th:field="*{soLuong}" value = '1' 
+                    		min = 1 autofocus max = 10000/></td>
                 </tr>
                                     
                 <tr>
-                	<td><button type="button" onclick="history.back()">Quay lại</button> </td>
-                    <td><button type="submit">Nhập Hàng</button> </td>
+                	<td><button id="btnBack" type="button" onclick="history.back()">Quay lại</button> </td>
+                    <td><button id = "btnNhapHang" type="submit">Nhập Hàng</button> </td>
                 </tr>
             </table>
         </form>

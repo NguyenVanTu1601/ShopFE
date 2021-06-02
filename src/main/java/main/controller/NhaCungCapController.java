@@ -114,18 +114,22 @@ public class NhaCungCapController {
 		
 		// addSupplier
 		nhaCungCap.setActive(1);
-		rest.postForObject("http://localhost:8080/suppliers",nhaCungCap, NhaCungCap.class);
+		nhaCungCap = rest.postForObject("http://localhost:8080/suppliers",nhaCungCap, NhaCungCap.class);
+		if (nhaCungCap.getIdNhaCungCap() > 0) {
+			// getListSupplier
+			List<NhaCungCap> listSupplier = new ArrayList<NhaCungCap>();
+			listSupplier = Arrays.asList(
+					rest.getForObject("http://localhost:8080/suppliers"
+							,NhaCungCap[].class));
+			model.addAttribute("listSupplier", listSupplier);
+			
+			// add to model
+			model.addAttribute("listSupplier",listSupplier);
+			return "search_supplier";
+		}else {
+			return "new_supplier";
+		}
 		
-		// getListSupplier
-		List<NhaCungCap> listSupplier = new ArrayList<NhaCungCap>();
-		listSupplier = Arrays.asList(
-				rest.getForObject("http://localhost:8080/suppliers"
-						,NhaCungCap[].class));
-		model.addAttribute("listSupplier", listSupplier);
-		
-		// add to model
-		model.addAttribute("listSupplier",listSupplier);
-		return "search_supplier";
 	}
 	
 	/*

@@ -31,28 +31,28 @@ input[type=text] {
             	
                 <tr>
                     <td><span style="color:red">*</span> Tên nhà cung cấp:</td>
-                    <td><input type="text" th:field="*{tenNhaCungCap}" autofocus /></td>
-                    <td><span style="color:red" th:text="${error_name}"></span></td>
+                    <td><input id = "name" type="text" th:field="*{tenNhaCungCap}" autofocus /></td>
+                    <td><span id = "error_name" style="color:red" th:text="${error_name}"></span></td>
                 </tr>
                 <tr>
                     <td> <span style="color:red">*</span> Tên chủ cửa hàng:</td>
-                    <td><input type="text" th:field="*{tenChuCuaHang}" /></td>
-                    <td><span style="color:red" th:text="${error_name2}"></span></td>
+                    <td><input id = "name2" type="text" th:field="*{tenChuCuaHang}" /></td>
+                    <td><span id = "error_name2" style="color:red" th:text="${error_name2}"></span></td>
                 </tr>
                 <tr>
                     <td><span style="color:red">*</span> Địa chỉ:</td>
-                    <td><input type="text" th:field="*{diaChi}" /></td>
-                    <td><span style="color:red" th:text="${error_add}"></span></td>
+                    <td><input id = "address" type="text" th:field="*{diaChi}" /></td>
+                    <td><span id = "error_add" style="color:red" th:text="${error_add}"></span></td>
                 </tr>
                 <tr>
                     <td><span style="color:red">*</span> Số điện thoại:</td>
-                    <td><input type="text" th:field="*{soDienThoai}" /></td>
-                    <td><span style="color:red" th:text="${error_phone}"></span></td>
+                    <td><input id = "phone" type="text" th:field="*{soDienThoai}" /></td>
+                    <td><span id = "error_phone" style="color:red" th:text="${error_phone}"></span></td>
                 </tr>
                                     
                 <tr>
-                	<td><button type="button" onclick="history.back()">Quay lại</button></td>
-                    <td><button type="submit">Thêm mới</button> </td>
+                	<td><button id = "btnBack" type="button" onclick="history.back()">Quay lại</button></td>
+                    <td><button id = "btnAdd" type="submit">Thêm mới</button> </td>
                     
                 </tr>
             </table>

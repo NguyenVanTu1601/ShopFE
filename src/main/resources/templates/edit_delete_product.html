@@ -40,16 +40,18 @@ input[type=number] {
             <table border="0" cellpadding="10">
             	
             	<tr>
-                    <td>Mã mặt hàng:</td>
+                    <td>Mã mặt hàng</td>
                     <td><input type="text" th:field="*{idMatHang}" readonly="readonly"/></td>
                 </tr>
                 
                 <tr>
-                    <td><span style="color:red">*</span> Tên mặt hàng:</td>
-                    <td><input type="text" th:field="*{tenMatHang}" autofocus/></td>
+                    <td>Tên mặt hàng <span style="color:red">*</span></td>
+                    <td><input id = "name" type="text" th:field="*{tenMatHang}" autofocus/></td>
+                    <td></td>
+                    <td><span id = "error_name" style="color:red" th:text="${error_name}"></span></td>
                 </tr>
                 <tr>
-                    <td><span style="color:red">*</span> Loại mặt hàng:</td>
+                    <td> Loại mặt hàng <span style="color:red">*</span></td>
                     <td>
                     	<!-- <input type="text" th:field="*{loaiMatHang}" />  -->
                     	<select th:field="*{loaiMatHang}" class = "spin">
@@ -61,30 +63,33 @@ input[type=number] {
                     </td>
                 </tr>
                 <tr>
-                    <td><span style="color:red">*</span> Giá nhập:</td>
-                    <td><input type="number" th:field="*{giaNhap}" /></td>
+                    <td>Số lượng </td>
+                    <td><input type="number" th:field="*{soLuong}" min = 1 readonly="readonly"/></td>
+                </tr>
+                <tr>
+                    <td>Giá nhập <span style="color:red">*</span></td>
+                    <td><input id = "price1" type="number" th:field="*{giaNhap}" min = 1 max = 100000000/></td>
                     <td>VNĐ</td>
                 </tr>
                 <tr>
-                    <td><span style="color:red">*</span> Giá bán:</td>
-                    <td><input type="number" th:field="*{giaBan}" /></td>
-                    <td>VNĐ</td>
+                    <td> Giá bán <span style="color:red">*</span></td>
+                    <td><input id = "price2" type="number" th:field="*{giaBan}" min = 1 max = 100000000/></td>
+                    <td>VNĐ <span id = "error_price" style="color:red" th:text="${error_price}"></span></td>
                 </tr>
-                
                                     
                 <tr>
                     <td> </td>
                     
 					<td>
-						<button type="submit" class = "button" 
+						<button id = "btnSua" type="submit" class = "button" 
 						onclick="return confirm('Bạn muốn sửa thông tin mặt hàng này?')">Sửa</button>
 						
 						<a th:href="@{'/products/delete/' + *{idMatHang}}" 
 							onclick="return confirm('Bạn muốn xóa mặt hàng này?')">
-							<button type="button" class = "button">Xóa</button>
+							<button id = "btnXoa" type="button" class = "button">Xóa</button>
 						</a>
 						
-						<button type="button" class = "button" 
+						<button id = "btnBack" type="button" class = "button" 
 						onclick="history.back()">Quay lại</button>
 					</td>
 					

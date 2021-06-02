@@ -27,24 +27,24 @@ input[type=password] {
             	
                 <tr>
                     <td>Tên đăng nhập :</td>
-                    <td><input type="text" th:field="*{tenDangNhap}" autofocus/></td>
-                    <td><span style="color:red" th:text="${er_username}"></span></td>
+                    <td><input id = "username" type="text" th:field="*{tenDangNhap}" autofocus/></td>
+                    <td><span id = "error_username" style="color:red" th:text="${er_username}"></span></td>
                 </tr>
                 <tr>
                     <td>Mật khẩu:</td>
-                    <td><input type="password" th:field="*{matKhau}" /></td>
-                    <td><span style="color:red" th:text="${er_pass}"></span></td>
+                    <td><input id = "password" type="password" th:field="*{matKhau}" /></td>
+                    <td><span id = "error_pass" style="color:red" th:text="${er_pass}"></span></td>
                 </tr>
                                         
                 <tr>
                 	<td></td>
-                	<td><button type="submit">Đăng nhập</button> </td> 
+                	<td><button id = "btnLogin" type="submit">Đăng nhập</button> </td> 
                 </tr>
                 
                 <tr>
                 	<td>
                 	</td>
-                	<td><span 
+                	<td><span id = "error"
                     	style="color:red" th:text="${er_account}"></span> 
                     </td>
                     <td>
