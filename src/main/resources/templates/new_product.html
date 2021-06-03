@@ -36,12 +36,12 @@ input[type=number] {
  
             <table border="0" cellpadding="10">
                 <tr>
-                    <td><span style="color:red">*</span> Tên mặt hàng: </td>
+                    <td>Tên mặt hàng <span style="color:red">*</span>  </td>
                     <td><input id = "name" type="text" th:field="*{tenMatHang}" autofocus/></td>
                     <td><span id = "error_name" style="color:red" th:text="${error_name}"></span></td>
                 </tr>
                 <tr>
-                    <td><span style="color:red">*</span> Loại mặt hàng:</td>
+                    <td>Loại mặt hàng <span style="color:red">*</span></td>
                     <td>
                     	<!-- <input type="text" th:field="*{loaiMatHang}" /> -->
                     	<select th:field="*{loaiMatHang}" class = "spin">
@@ -54,13 +54,13 @@ input[type=number] {
                     <td><span style="color:red" th:text="${error_type}"></span></td>
                 </tr>
                 <tr>
-                    <td><span style="color:red">*</span> Giá nhập:</td>
+                    <td>Giá nhập <span style="color:red">*</span> </td>
                     <td> <input id = "price1" type="number" th:field="*{giaNhap}" min = 1 max = 100000000/> </td>
                     <td>VNĐ</td>
                     
                 </tr>
                 <tr>
-                    <td><span style="color:red">*</span> Giá bán:</td>
+                    <td>Giá bán <span style="color:red">*</span> </td>
                     <td><input id = "price2" type="number" th:field="*{giaBan}" min = 1 max = 100000000 required/></td>
                     <td>VNĐ <span id = "error_price" style="color:red" th:text="${error_price}"></span></td>
                     <td><span class="validity"></span></td>
